@@ -1,13 +1,29 @@
 import React from "react";
-
+import { useState } from "react";
 import trackList from "../../assets/trackList.js";
 import Track from "../../components/Track/Track.jsx";
 import style from "./mainPage.module.scss";
 import { Input } from "@mui/material";
 
+const runSearch = (query) => {
+  if (!query) {
+    return trackList;
+  }
+  const lowerCaseQuery = query.toLowerCase();
+
+  return trackList.filter(
+    (track) =>
+      track.title.toLowerCase().includes(lowerCaseQuery) ||
+      track.artists.toLowerCase().includes(lowerCaseQuery)
+  );
+};
+
 const MainPage = () => {
+  const [tracks, setTracks] = useState(trackList);
+
   const handleChange = (event) => {
-    console.log(event.target.value);
+    const foundTracks = runSearch(event.target.value);
+    setTracks(foundTracks);
   };
 
   return (
@@ -18,7 +34,7 @@ const MainPage = () => {
         onChange={handleChange}
       />
       <div className={style.list}>
-        {trackList.map((track) => (
+        {tracks.map((track) => (
           <Track key={track.id} {...track} />
         ))}
       </div>
