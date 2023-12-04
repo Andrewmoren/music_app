@@ -30,7 +30,7 @@ const MainPage = () => {
     <div className={style.search}>
       <Input
         className={style.input}
-        placeholder="Поиск треков"
+        placeholder="Search..."
         onChange={handleChange}
       />
       <div className={style.list}>
