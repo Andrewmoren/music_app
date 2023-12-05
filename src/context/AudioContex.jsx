@@ -11,7 +11,12 @@ const AudioProvider = ({ children }) => {
   const handleToggleAudio = (track) => {
     console.log("click!");
   };
-  return <AudioContext.Provider value={{}}>{children}</AudioContext.Provider>;
+
+  const value = { currentTrack, isPlaying, handleToggleAudio };
+
+  return (
+    <AudioContext.Provider value={value}>{children}</AudioContext.Provider>
+  );
 };
 
 export default AudioProvider;

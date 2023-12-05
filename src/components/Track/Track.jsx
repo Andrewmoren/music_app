@@ -4,9 +4,13 @@ import style from "./track.module.scss";
 import { IconButton } from "@mui/material";
 import { PlayArrow } from "@mui/icons-material";
 import secondsToMMSS from "../../utils/secondsToMMSS";
+import { useContext } from "react";
+import { AudioContex } from "../../context/AudioContex";
 
 const Track = (track) => {
   const { id, src, preview, title, artists, duration } = track;
+
+  const { handleToggleAudio } = useContext(AudioContex);
 
   const formattedDuration = secondsToMMSS(duration);
 
