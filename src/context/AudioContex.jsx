@@ -9,6 +9,7 @@ const AudioProvider = ({ children }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handleToggleAudio = (track) => {
+    track;
     console.log("click!");
   };
 
