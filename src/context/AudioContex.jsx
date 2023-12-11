@@ -18,6 +18,8 @@ const AudioProvider = ({ children }) => {
       audio.src = track.src;
       audio.currentTime = 0;
       audio.play();
+
+      return;
     }
 
     if (isPlaying) {
