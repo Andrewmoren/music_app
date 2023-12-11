@@ -11,6 +11,15 @@ const AudioProvider = ({ children }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handleToggleAudio = (track) => {
+    if (currentTrack.id !== track.id) {
+      setCurrentTrack(track);
+      setIsPlaying(true);
+
+      audio.src = track.src;
+      audio.currentTime = 0;
+      audio.play();
+    }
+
     if (isPlaying) {
       audio.pause();
       setIsPlaying(false);
