@@ -15,6 +15,8 @@ const Playbar = () => {
 
   const formattedDuration = secondsToMMSS(duration);
 
+  const formatedCurrentTime = secondsToMMSS(currentTime);
+
   const sliderCurrentTime = Math.round((currentTime / duration) * 100);
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const Playbar = () => {
         <p>{artists}</p>
       </div>
       <div className={style.slider}>
-        <p>00:00</p>
+        <p>{formatedCurrentTime}</p>
         <Slider step={1} min={0} max={100} value={sliderCurrentTime} />
         <p>{formattedDuration}</p>
       </div>
