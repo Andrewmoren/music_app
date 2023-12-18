@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AudioContex } from "../../context/AudioContex";
 import style from "./playbar.module.scss";
 import { Slider, IconButton } from "@mui/material";
@@ -6,12 +6,22 @@ import { PlayArrow, Pause } from "@mui/icons-material";
 import secondsToMMSS from "../../utils/secondsToMMSS";
 
 const Playbar = () => {
+  const [currentTime, setCurrentTime] = useState(0);
+
   const { audio, currentTrack, handleToggleAudio, isPlaying } =
     useContext(AudioContex);
 
   const { title, artists, preview, duration } = currentTrack;
 
   const formattedDuration = secondsToMMSS(duration);
+
+  const sliderCurrentTime = Math.round((currentTime / duration) * 100);
+
+  useEffect(() => {
+    const timeInterval = setInterval(() => {
+      setCurrentTime(audio.currentTime);
+    }, 1000);
+  }, []);
   return (
     <div className={style.playbar}>
       <img className={style.preview} src={preview} alt="" />
@@ -24,7 +34,7 @@ const Playbar = () => {
       </div>
       <div className={style.slider}>
         <p>00:00</p>
-        <Slider step={1} min={0} max={100} />
+        <Slider step={1} min={0} max={100} value={sliderCurrentTime} />
         <p>{formattedDuration}</p>
       </div>
     </div>
