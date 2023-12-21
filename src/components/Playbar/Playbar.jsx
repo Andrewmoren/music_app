@@ -22,6 +22,9 @@ const TimeControls = () => {
     const timeInterval = setInterval(() => {
       setCurrentTime(audio.currentTime);
     }, 1000);
+    return () => {
+      clearInterval(timeInterval);
+    };
   }, []);
 
   <>
