@@ -19,6 +19,12 @@ const Playbar = () => {
 
   const sliderCurrentTime = Math.round((currentTime / duration) * 100);
 
+  const handleChangeCurrentTIme = (_, value) => {
+    const time = Math.round((value / 100) * duration);
+    setCurrentTime(time);
+    audio.currentTime = time;
+  };
+
   useEffect(() => {
     const timeInterval = setInterval(() => {
       setCurrentTime(audio.currentTime);
@@ -36,7 +42,13 @@ const Playbar = () => {
       </div>
       <div className={style.slider}>
         <p>{formatedCurrentTime}</p>
-        <Slider step={1} min={0} max={100} value={sliderCurrentTime} />
+        <Slider
+          step={1}
+          min={0}
+          max={100}
+          value={sliderCurrentTime}
+          onChange={handleChangeCurrentTIme}
+        />
         <p>{formattedDuration}</p>
       </div>
     </div>
