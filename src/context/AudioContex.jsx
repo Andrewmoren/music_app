@@ -7,7 +7,7 @@ const defaultTrack = trackList[0];
 const audio = new Audio(defaultTrack.src);
 
 const AudioProvider = ({ children }) => {
-  const [currentTrack, setCurrentTrack] = useState(trackList[0]);
+  const [currentTrack, setCurrentTrack] = useState(defaultTrack);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handleToggleAudio = (track) => {

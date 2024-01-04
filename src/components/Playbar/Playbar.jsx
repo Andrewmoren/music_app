@@ -1,12 +1,12 @@
 import { useContext, useState, useEffect } from "react";
-import { AudioContex } from "../../context/AudioContex";
+import { AudioContext } from "../../context/AudioContext";
 import style from "./playbar.module.scss";
 import { Slider, IconButton } from "@mui/material";
 import { PlayArrow, Pause } from "@mui/icons-material";
 import secondsToMMSS from "../../utils/secondsToMMSS";
 
 const TimeControls = () => {
-  const { audio, currentTrack } = useContext(AudioContex);
+  const { audio, currentTrack } = useContext(AudioContext);
 
   const { duration } = currentTrack;
   const [currentTime, setCurrentTime] = useState(0);
