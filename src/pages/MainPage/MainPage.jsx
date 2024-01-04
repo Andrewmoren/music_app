@@ -18,13 +18,13 @@ const runSearch = (query) => {
   );
 };
 
-// const MainPage = () => {
-//   const [tracks, setTracks] = useState(trackList);
+const MainPage = () => {
+  const [tracks, setTracks] = useState(trackList);
 
-//   const handleChange = (event) => {
-//     const foundTracks = runSearch(event.target.value);
-//     setTracks(foundTracks);
-//   };
+  const handleChange = (event) => {
+    const foundTracks = runSearch(event.target.value);
+    setTracks(foundTracks);
+  };
 
   return (
     <div className={style.search}>

@@ -9,11 +9,12 @@ import { AudioContex } from "../../context/AudioContex";
 import cn from "classnames";
 
 const Track = (track) => {
-  const { id, src, preview, title, artists, duration } = track;
+  const { id, preview, title, artists, duration } = track;
 
-  const { handleToggleAudio, currentTrack } = useContext(AudioContex);
+  const { handleToggleAudio, currentTrack, isPlaying } =
+    useContext(AudioContex);
 
-  const isCurrentTrack = currentTrack.id === track.id;
+  const isCurrentTrack = currentTrack.id === id;
 
   const formattedDuration = secondsToMMSS(duration);
 
