@@ -40,6 +40,8 @@ const TimeControls = () => {
 };
 
 const Playbar = () => {
+  const { currentTrack, handleToggleAudio, isPlaying } =
+    useContext(AudioContext);
   const { title, artists, preview, duration } = currentTrack;
 
   const formattedDuration = secondsToMMSS(duration);
