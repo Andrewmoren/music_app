@@ -35,11 +35,6 @@ const TimeControls = () => {
       max={100}
       value={sliderCurrentTime}
       onChange={handleChangeCurrentTIme}
-      step={1}
-      min={0}
-      max={100}
-      value={sliderCurrentTime}
-      onChange={handleChangeCurrentTIme}
     />
   </>;
 };

@@ -14,6 +14,11 @@ const Track = (track) => {
   const { handleToggleAudio, currentTrack, isPlaying } =
     useContext(AudioContext);
 
+  const { id, preview, title, artists, duration } = track;
+
+  const { handleToggleAudio, currentTrack, isPlaying } =
+    useContext(AudioContext);
+
   const isCurrentTrack = currentTrack.id === id;
 
   const formattedDuration = secondsToMMSS(duration);
