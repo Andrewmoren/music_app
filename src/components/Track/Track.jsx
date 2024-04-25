@@ -1,11 +1,17 @@
 import React from "react";
 
 import style from "./track.module.scss";
+
 import { IconButton } from "@mui/material";
-import { PlayArrow, Pause } from "@mui/icons-material";
-import secondsToMMSS from "../../utils/secondsToMMSS";
+
 import { useContext } from "react";
+
 import { AudioContext } from "../../context/AudioContext";
+
+import { PlayArrow, Pause } from "@mui/icons-material";
+
+import secondsToMMSS from "../../utils/secondsToMMSS";
+
 import cn from "classnames";
 
 const Track = (track) => {
@@ -28,6 +34,7 @@ const Track = (track) => {
         <b>{title}</b>
         <p>{artists}</p>
       </div>
+
       <p>{formattedDuration}</p>
     </div>
   );
